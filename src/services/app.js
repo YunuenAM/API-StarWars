@@ -55,12 +55,14 @@ class CharacterServices {
   
     }
   
-    delete(){
-   
+    delete(quitCharacter){
+ {
+            this.characters.delete(quitCharacter);
     
   
     }
   
   }
+}
   
   module.exports = CharacterServices;

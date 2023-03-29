@@ -34,7 +34,15 @@ const editComplete = (req, res) => {
 
 }
 
-const deleteCharacter = (req, res) => {
+const deleteCharacter =  async (req, res) => {
+
+  try {
+    const quitCharacter = req.body;
+    characterService.deleteCharacter(quitCharacter);
+    res.status(201).send();
+  } catch(error) {
+    res.status(500).json( { message: ' fatal error' } )
+  }
 
 }
 
