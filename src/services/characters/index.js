@@ -63,12 +63,13 @@ class CharacterServices {
   
     }
   
-    delete(quitCharacter){
- {
-            this.characters.delete(quitCharacter);
+    deleteCharacter(id){
+ 
+            // this.characters.delete(quitCharacter);
+            console.log(id+'delete') //id + 
     
   
-    }
+    
   
   }
 }
