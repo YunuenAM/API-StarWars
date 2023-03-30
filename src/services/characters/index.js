@@ -17,7 +17,15 @@ class CharacterServices {
     }
   
     createCharacter(newCharacter){
-        this.characters.push(newCharacter);
+        return new Promise((resolve,reject) =>{
+            setTimeout(() => {
+                this.characters.push(newCharacter);
+                resolve(); // try
+                // reject catch
+            }, 1000);
+
+           
+        })
     }
   
     queryAll(){

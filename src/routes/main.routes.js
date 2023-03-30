@@ -1,4 +1,4 @@
-const routerCharacter = require('../../services/app');
+const routerCharacter = require('./characters/index');
 
 
 const routerApi = (app) => {

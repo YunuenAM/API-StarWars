@@ -1,5 +1,5 @@
 const express = require('express');
-const { get, getById, create, editComplete, editPartial, deleteCharacter } = require('../../controllers/index')
+const { get, getById, create, editComplete, editPartial, deleteCharacter } = require('../../controllers/characters/index')
 const characterRouter = express.Router();
 
 characterRouter.get('/', get);
