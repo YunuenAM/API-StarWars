@@ -1,4 +1,4 @@
-const CharacterService = require('../services/characters/app');
+const CharacterService = require('../services/app');
 const characterService = new CharacterService();
 
 const get = async (req, res) => {
