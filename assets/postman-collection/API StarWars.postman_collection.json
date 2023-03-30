@@ -1,0 +1,71 @@
+{
+	"info": {
+		"_postman_id": "d55739c3-eca0-4f8d-8f6f-bebe100f68a7",
+		"name": "API StarWars",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26408458"
+	},
+	"item": [
+		{
+			"name": "create character",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"id\": 1,\r\n \"name\": \"Darth Sidious\",\r\n \"skill\": \"politics\",\r\n \"weapon\": \"democracy\",\r\n \"quote\": \"¡Power,unlimited power!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/character/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"character",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all character",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"id\": 1,\r\n \"name\": \"Darth Sidious\",\r\n \"skill\": \"politics\",\r\n \"weapon\": \"democracy\",\r\n \"quote\": \"¡Power,unlimited power!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/character/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"character",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
