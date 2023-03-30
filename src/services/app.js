@@ -10,8 +10,8 @@ class CharacterServices {
         this.characters = [
             { id: 1, name: 'Darth Sidious', skill: 'politics', weapon: 'democracy', quote: '¡Power, unlimited power!'},
             { id: 2, name: 'Mace Windu', skill: 'wisdom and courage', weapon: 'jedi lightsaber', quote: 'If What You have Told Me Is True You Will Have Gained My Trust' },
-            { id: 3, name: 'C-3PO', skill: 'ability to communicate', weapon: 'none', quote: 'RRWWWGG' },
-            { id: 4, name: 'water', skill: 'true', weapon: '', quote: ' sometimes, I just dont understand human behavior' },
+            { id: 3, name: 'C-3PO', skill: 'ability to communicate', weapon: 'none', quote: ' sometimes, I just dont understand human behavior'  },
+            { id: 4, name: 'Chewbacca', skill: 'ferocity', weapon: 'Chewbaccas crossbow', quote: 'Rwwww'}
             
         ];
     }
