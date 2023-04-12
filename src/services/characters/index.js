@@ -60,8 +60,10 @@ class CharacterServices {
     }
   
     editComplete(){
+        console.log(id+'put')
   
     }
+  
   
     deleteCharacter(id){
  
