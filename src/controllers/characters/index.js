@@ -26,7 +26,16 @@ const create = (req, res) => {
   
 }
 
-const editPartial = (req, res) => {
+const editPartial = async(req, res) => {
+  try{
+    const resourceId = req.params.id; // Get the id of the resource from the URL parameters
+    const patchData = req.body; //Get the new data for the resource from the request body
+    patchResource(resourceId,patchData);
+    res.status(200).json(updatedResource)
+  } catch(error){
+    console.error(error);
+    res.status(500).json({message: 'Failed to update resource'})
+  }
 
 }
 
