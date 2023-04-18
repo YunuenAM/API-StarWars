@@ -59,9 +59,16 @@ class CharacterServices {
         res.status(200).send();
     }
   
-    editComplete(){
-        console.log(id+'put')
-  
+    editComplete(id, newData) {
+        return new Promise((resolve, reject) => {
+            const index = this.characters.findIndex(character => character.id === parseInt(id));
+            if (index !== -1) {
+                this.characters[index] = newData;
+                resolve(this.characters[index]);
+            } else {
+                reject(new Error('Character not found'));
+            }
+        });
     }
   
   

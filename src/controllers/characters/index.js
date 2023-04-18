@@ -2,78 +2,72 @@ const CharacterService = require('../../services/characters');
 const characterService = new CharacterService();
 
 const get = async (req, res) => {
-    try {
-      // console.log(characterService.queryAll())
-      const characters = await characterService.queryAll();
-      res.status(200).json(characters);
-    } catch(error) {
-      res.status(404).json( { message: 'no characters' } );
-    }
-}
+  try {
+    const characters = await characterService.queryAll();
+    res.status(200).json(characters);
+  } catch(error) {
+    res.status(404).json({ message: 'no characters' });
+  }
+};
 
-const getById = (req, res) => {
+const getById = async (req, res) => {
+  try {
+    const character = await characterService.queryById(req.params.id);
+    res.status(200).json(character);
+  } catch(error) {
+    res.status(404).json({ message: 'character not found' });
+  }
+};
 
-}
-
-const create = (req, res) => {
+const create = async (req, res) => {
   try {
     const newCharacter = req.body;
-    characterService.createCharacter(newCharacter);
-    res.status(201).send();
+    const createdCharacter = await characterService.createCharacter(newCharacter);
+    res.status(201).json(createdCharacter);
   } catch(error) {
-    res.status(500).json( { message: ' fatal error' } )
+    res.status(500).json({ message: 'fatal error' });
   }
-  
-}
+};
 
-const editPartial = async(req, res) => {
+const editPartial = async (req, res) => {
   try{
-    const resourceId = req.params.id; // Get the id of the resource from the URL parameters
-    const patchData = req.body; //Get the new data for the resource from the request body
-    patchResource(resourceId,patchData);
-    res.status(200).json(updatedResource)
+    const resourceId = req.params.id;
+    const patchData = req.body;
+    const updatedResource = await characterService.patchCharacter(resourceId, patchData);
+    res.status(200).json(updatedResource);
   } catch(error){
     console.error(error);
-    res.status(500).json({message: 'Failed to update resource'})
+    res.status(500).json({message: 'Failed to update resource'});
   }
+};
 
-}
-
-const editComplete = async(req, res) => {
-
-  
-  try{
-    updatedResource (resourceId,newData);
-    const resourceId = req.params.id; //Get the ID of the resource from the URL params
-    const newData =req.body; //Get the new data for the resource from the request body
-    res.status(200).json(updatedResource);
-  }catch(error){
-    res.status(500).json({message: 'failed to update resource'})
-  }
-
-
-
-}
-
-const deleteCharacter =  async (req, res) => {
-
+const editComplete = async (req, res) => {
   try {
-    // const quitCharacter = req.body;
-    const {id} = req.params
-    console.log(id)
-    characterService.deleteCharacter(id);
-    res.status(201).send();
+    const resourceId = req.params.id;
+    const newData = req.body;
+    const updatedResource = await characterService.updateCharacter(resourceId, newData);
+    res.status(200).json(updatedResource);
   } catch(error) {
-    res.status(500).json( { message: ' fatal error' } )
+    console.error(error);
+    res.status(500).json({message: 'failed to update resource'});
   }
+};
 
-}
+const deleteCharacter = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await characterService.deleteCharacter(id);
+    res.status(204).send();
+  } catch(error) {
+    res.status(500).json({ message: 'fatal error' });
+  }
+};
 
 module.exports = {
-    get,
-    getById,
-    create,
-    editPartial,
-    editComplete,
-    deleteCharacter,
-}
+  get,
+  getById,
+  create,
+  editPartial,
+  editComplete,
+  deleteCharacter,
+};
