@@ -1,25 +1,14 @@
+
 const express = require('express');
-const routerCharacter = require('./characters');
+const routerCharacter = require('./characters/index.js');
+
 
 const routerApi = (app) => {
-  app.use(express.json());
-  app.use('/characters', routerCharacter);
-  app.listen(3000, () => {
-    console.log('Server listening on port 3000');
-  });
-};
+    app.use('/character', routerCharacter);
+    // Agrega estas dos líneas:
+  routerCharacter.patch('/:id', editPartial);
+  routerCharacter.put('/:id', editComplete);
+    // app.use('/trainers', routerTrainers);
+}
 
 module.exports = routerApi;
-
-
-
-// const express = require('express');
-// const routerCharacter = require('./characters/index');
-
-
-// const routerApi = (app) => {
-//     app.use('/character', routerCharacter);
-//     // app.use('/trainers', routerTrainers);
-// }
-
-// module.exports = routerApi;
